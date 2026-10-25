@@ -5,9 +5,12 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import mongoDb from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
+import connectCloudinary from "./config/cloudinary.js";
 
 dotenv.config();
 mongoDb();
+connectCloudinary();
 
 const app = express();
 
@@ -22,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/category", categoryRoutes);
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);

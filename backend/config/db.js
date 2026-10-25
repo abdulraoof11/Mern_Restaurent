@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const dbUrl = process.env.MONGODB_URI;
-console.log(dbUrl)
+console.log(dbUrl);
 
 const mongoDb = async () => {
   try {
