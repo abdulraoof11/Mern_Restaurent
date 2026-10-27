@@ -22,12 +22,12 @@ export const createCategory = async (req, res) => {
         message: "Category already exists",
       });
     }
+    console.log("Image uploaded to Cloudinary:"); // Log the secure URL of the uploaded image
 
     // Upload image to Cloudinary
     const imageResult = await cloudinary.uploader.upload(image.path, {
       folder: "category_images",
     });
-
     // Create category
     const newCategory = new Category({
       name,
